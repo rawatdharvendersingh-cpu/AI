@@ -1,0 +1,10 @@
+2026-10-27 13:04:02.066: [INFO] CurrentProfilePath: c:\Users\admin\Desktop\AI\.edge_tmp\Default
+2026-10-27 13:04:02.066: [INFO] Profiles total count: 1
+2026-10-27 13:04:02.066: [INFO] Profile: name=Profile 1 path=c:\Users\admin\Desktop\AI\.edge_tmp\Default lastActive=2026-10-27T13:04:02.054Z
+2026-10-27 13:04:02.066: [INFO] LastUsedProfileDir: c:\Users\admin\Desktop\AI\.edge_tmp\Default
+2026-10-27 13:04:02.066: [INFO] MostRecentlyActiveProfile: name=Profile 1 path=c:\Users\admin\Desktop\AI\.edge_tmp\Default lastActive=2026-10-27T13:04:02.054Z
+2026-10-27 13:04:02.066: [INFO] OnDoneLoading sync enabled: 0
+2026-10-27 13:04:02.066: [INFO] BookmarkModelLoaded, ids_reassigned: 0
+2026-10-27 13:04:02.066: [INFO] BookmarksLoadDropped droppedNodes=0
+2026-10-27 13:04:02.066: [INFO] BookmarksSnapshot Startup total=0 bar=0 other=0 mobile=0 showBar=0 showBarNTP=1
+2026-10-27 13:04:07.462: [INFO] RecordSyncInitDuration has_sync_been_enabled: 0 state: 0

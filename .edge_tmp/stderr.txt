@@ -1,0 +1,9 @@
+[6324:8352:1027/183401.807:WARNING:net\dns\dns_config_service_win.cc:607] Failed to read DnsConfig.
+[6324:7244:1027/183407.462:WARNING:net\dns\dns_config_service_win.cc:607] Failed to read DnsConfig.
+[6324:6524:1027/183407.566:WARNING:chrome\browser\extensions\external_registry_loader_win.cc:283] Error observing HKLM: 5
+[6324:6524:1027/183407.568:WARNING:chrome\browser\extensions\external_registry_loader_win.cc:294] Error observing HKCU: Access is denied. (0x5)
+[6324:6524:1027/183407.686:ERROR:chrome\browser\component_updater\edge_optimization_guide_models_manifest_installer.cc:264] Edge LLM: catalog update failed: 5
+[6324:6524:1027/183407.725:ERROR:components\device_event_log\device_event_log_impl.cc:257] [18:34:07.725] USB: usb_device_win.cc:66 Failed to open \\?\usb#root_hub30#4&20a42e89&0&0#{f18a0e88-c30c-11d0-8815-00a0c906bed8}: Access is denied. (0x5)
+[6324:6524:1027/183407.733:ERROR:chrome\browser\component_updater\edge_language_detection_model_installer.cc:97] Edge Language Detection Model: On-demand update failed with error: 5
+[6324:6524:1027/183408.010:ERROR:chrome\browser\edge_pinned_sites\secondary_tile_client.cc:283] OnSecondaryTileManagerDisconnected. Probing host package health before responding to callbacks
+[6324:6524:1027/183408.010:ERROR:chrome\browser\edge_pinned_sites\pinned_sites_cache.cc:284] Failed to retrieve pinned sites

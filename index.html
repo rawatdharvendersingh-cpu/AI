@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎬 VidoNova AI Studio Pro | Automated Script-To-Video AI Engine</title>
+  <meta name="description"
+    content="VidoNova AI - Automated Script-to-Video Engine: Full autonomous scene breakdown, AI visuals, synchronized dialogue voiceover, animated characters with real-time lip-sync, and final video editing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="studio-dark-theme">
+  <!-- Ambient background glow elements -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+  <div class="ambient-glow glow-3"></div>
+
+  <div class="studio-app-container">
+    <!-- Top Master Control Bar -->
+    <header class="studio-topbar">
+      <div class="topbar-left">
+        <div class="studio-brand">
+          <div class="studio-logo-icon">⚡</div>
+          <div class="brand-text">
+            <div class="brand-title-row">
+              <h1>VIDONOVA AI CINEMA <span class="badge-pro">STUDIO PRO</span></h1>
+              <span class="badge-engine">⚡ Script-To-Video Engine • Auto-Scenes & Timed Dialogues</span>
+            </div>
+            <p class="brand-sub">Input Script or Story → Automatic Scene Breakdown → Character Dialogues by Time Limit →
+              Final Video</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="topbar-center">
+        <div class="director-mode-selector">
+          <button type="button" class="btn-mode-pill active" data-cam-mode="dynamic">🎥 Dynamic Auto-Cam</button>
+          <button type="button" class="btn-mode-pill" data-cam-mode="twoshot">👥 Dual Two-Shot</button>
+          <button type="button" class="btn-mode-pill" data-cam-mode="chara">👤 Char A Focus</button>
+          <button type="button" class="btn-mode-pill" data-cam-mode="charb">👤 Char B Focus</button>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <button type="button" class="btn-topbar-tool" id="btn-save-project" title="Save Project JSON">💾 Save
+          Project</button>
+        <button type="button" class="btn-topbar-tool" id="btn-load-project-trigger" title="Load Project JSON">📂 Load
+          Project</button>
+        <input type="file" id="project-file-input" accept=".json" style="display: none;">
+        <div class="status-indicator-pill">
+          <span class="live-dot"></span>
+          <span id="engine-status-text">VidoNova AI Engine Ready</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Studio Workspace Grid -->
+    <main class="studio-workstation-grid">
+      <!-- Left Panel: Multi-Tab Director & Rigging Workstation -->
+      <section class="studio-panel workstation-deck" aria-label="Studio Configuration Deck">
+        <!-- Panel Navigation Tabs -->
+        <div class="deck-tabs-header">
+          <button type="button" class="deck-tab active" data-tab="script-tab">
+            <span class="tab-icon">⚡</span> VidoNova Generator
+          </button>
+          <button type="button" class="deck-tab" data-tab="storyboard-tab">
+            <span class="tab-icon">🎬</span> Storyboard & Scenes
+          </button>
+          <button type="button" class="deck-tab" data-tab="cast-tab">
+            <span class="tab-icon">🎭</span> Character Cast
+          </button>
+          <button type="button" class="deck-tab" data-tab="stage-tab">
+            <span class="tab-icon">🎨</span> Stage & Scenery
+          </button>
+          <button type="button" class="deck-tab" data-tab="audio-tab">
+            <span class="tab-icon">🎚️</span> Voice & Audio
+          </button>
+        </div>
+
+        <div class="deck-tab-content-wrap">
+          <!-- TAB 1: VIDONOVA AI GENERATOR -->
+          <div class="deck-tab-pane active" id="pane-script-tab">
+            <!-- VidoNova Banner Card with 9-Step Guide -->
+            <div class="vidonova-intro-card">
+              <div class="vidonova-badge-row">
+                <span class="badge-vidonova-glow">✨ VIDONOVA AI CINEMA STUDIO</span>
+                <span class="badge-vidonova-sub">Autonomous Script-to-Video Engine • YouTube Ready</span>
+              </div>
+              <p class="vidonova-desc">
+                Transform any story idea, short description, or full script in <strong>Hindi or English</strong> into a
+                complete animated movie with character design, scene visuals, voiceovers, actions, and <strong>MP4
+                  YouTube export</strong>.
+              </p>
+
+              <!-- 9-Step Interactive Workflow Tracker -->
+              <div class="workflow-steps-tracker" aria-label="9-Step Creation Workflow">
+                <div class="wf-step active" title="Step 1: Input your story idea or script"><span class="wf-num">1</span> Story/Script</div>
+                <div class="wf-step active" title="Step 2: Choose language (Hindi / English)"><span class="wf-num">2</span> Language</div>
+                <div class="wf-step active" title="Step 3: Choose visual animation style"><span class="wf-num">3</span> Visual Style</div>
+                <div class="wf-step active" title="Step 4: Set duration, aspect, audience & voice"><span class="wf-num">4</span> Config</div>
+                <div class="wf-step active" title="Step 5: Click Generate Video"><span class="wf-num">5</span> Generate</div>
+                <div class="wf-step" title="Step 6: AI automatically creates scenes & dialogue"><span class="wf-num">6</span> AI Assembly</div>
+                <div class="wf-step" title="Step 7: Preview generated scenes & complete video"><span class="wf-num">7</span> Preview</div>
+                <div class="wf-step" title="Step 8: Edit script, dialogue, characters & audio"><span class="wf-num">8</span> Edit</div>
+                <div class="wf-step" title="Step 9: Export finished MP4 for YouTube"><span class="wf-num">9</span> YouTube MP4</div>
+              </div>
+            </div>
+
+            <!-- Single Unified Script / Story Input Area (Step 1) -->
+            <div class="form-group story-group vidonova-script-box" style="margin-top: 14px;">
+              <div class="label-with-actions">
+                <label for="story-input">
+                  <span>✍️</span> <strong>Step 1: Enter Story Idea, Short Description, or Complete Script:</strong>
+                </label>
+                <div class="input-actions-group">
+                  <button type="button" class="btn-preset-mini" id="btn-clear-script">✕ Clear</button>
+                </div>
+              </div>
+
+              <!-- Main Script Input (Works for prose stories, concepts, or formatted dialogue scripts!) -->
+              <textarea id="story-input" rows="7" placeholder="अपनी कहानी का विचार (Idea), कोई भी कहानी (Story), या पूरा डायलॉग स्क्रिप्ट यहाँ लिखें या पेस्ट करें...
+
+उदाहरण 1 (कहानी का विचार):
+'घने जंगल में वीर हनुमान जी और प्रभु श्री राम का मिलन हुआ। हनुमान जी ने एक साधु का वेश बनाया था, फिर वे प्रभु श्री राम के चरणों में आ गए...'
+
+उदाहरण 2 (डायलॉग स्क्रिप्ट):
+[हनुमान]: हे प्रभु! आप कौन हैं और इस घने जंगल में अकेले क्यों घूम रहे हैं?
+[श्री राम]: हे सौम्य वानर श्रेष्ठ! मैं दशरथ पुत्र राम हूँ, और अपनी पत्नी सीता की खोज में निकला हूँ।
+
+VidoNova AI आपके इस इनपुट के अनुसार किरदारों (Characters), दृश्यों (Scenes), आवाज़ों (Voices) और वीडियो को स्वचालित रूप से तैयार करेगा!"></textarea>
+
+              <!-- Compatibility hidden fields -->
+              <textarea id="story-theme-input" style="display: none;"></textarea>
+              <button type="button" id="btn-create-from-theme" style="display: none;"></button>
+
+              <div class="textarea-footer">
+                <span id="character-count">0 characters • 0 scenes</span>
+                <div class="footer-actions">
+                  <button type="button" class="btn-auto-expand-script" id="btn-auto-expand"
+                    style="padding: 6px 14px; font-size: 0.78rem;">
+                    <span class="vidonova-sparkle">✨</span> Auto-Format Scenes for <span
+                      id="auto-expand-duration-text">3 Minutes</span>
+                  </button>
+                  <button type="button" class="btn-text-action" id="btn-analyze-scenes">🔍 Parse Scenes</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Generator Configuration Grid (Step 2, 3, 4) -->
+            <div class="generator-config-grid">
+              <!-- Step 2: Language -->
+              <div class="form-group">
+                <div class="form-group-badge-label">
+                  <label for="story-lang-select">🌐 Step 2: Video Language</label>
+                  <span class="pill-opt-tag">Devanagari & Latin</span>
+                </div>
+                <div class="select-wrapper">
+                  <select id="story-lang-select">
+                    <option value="hi" selected>🇮🇳 हिन्दी (Hindi)</option>
+                    <option value="en">🇬🇧 English</option>
+                    <option value="hinglish">🇮🇳 Hinglish (Conversational)</option>
+                    <option value="auto">🌐 Auto-Detect from Script</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Step 3: Visual Style -->
+              <div class="form-group">
+                <div class="form-group-badge-label">
+                  <label for="story-genre-select">🎨 Step 3: Visual Style</label>
+                  <span class="pill-opt-tag" id="visual-style-badge">🌟 3D Pixar Cinema</span>
+                </div>
+                <div class="select-wrapper">
+                  <select id="story-genre-select">
+                    <option value="3d_animation" selected>🌟 3D Animation (Disney / Pixar 3D Cinema)</option>
+                    <option value="cinematic">🎬 Cinematic Animation (Hyper-realistic & Dramatic Lighting)</option>
+                    <option value="children">📖 Children's Animation (Whimsical Storybook Watercolor)</option>
+                    <option value="2d_cartoon">🎨 2D Cartoon (Classic Vector & Cel Animation)</option>
+                    <option value="anime">⚡ Anime-Inspired Animation (Makoto Shinkai & Ghibli Style)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Step 4: Target Audience -->
+              <div class="form-group">
+                <div class="form-group-badge-label">
+                  <label for="story-audience-select">👥 Step 4: Target Audience</label>
+                  <span class="pill-opt-tag">Adaptive Tone</span>
+                </div>
+                <div class="select-wrapper">
+                  <select id="story-audience-select">
+                    <option value="family" selected>👨‍👩‍👧 Family & General (All Ages: Heartwarming)</option>
+                    <option value="kids">👶 Kids & Toddlers (Ages 3-7: Gentle, playful, moral)</option>
+                    <option value="children">🧒 Children (Ages 8-12: Fun adventures, witty humor)</option>
+                    <option value="teens">🧑 Teens & Young Adults (Ages 13-18: Fast-paced, trendy)</option>
+                    <option value="adults">🧑‍💼 Adults & Mature (Thoughtful, poetic, cinematic)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Step 4: Aspect Ratio -->
+              <div class="form-group">
+                <div class="form-group-badge-label">
+                  <label for="video-mode-select">📐 Step 4: Aspect Ratio</label>
+                  <span class="pill-opt-tag">YouTube Ready</span>
+                </div>
+                <div class="select-wrapper">
+                  <select id="video-mode-select">
+                    <option value="landscape" selected>16:9 Cinema Wide (YouTube 1080p Full HD)</option>
+                    <option value="portrait">9:16 Vertical Story (YouTube Shorts / Reels 1080x1920)</option>
+                    <option value="square">1:1 Square (Instagram / Social Feed 1080x1080)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Step 4: Voice Style -->
+              <div class="form-group">
+                <div class="form-group-badge-label">
+                  <label for="voice-style-select">🎙️ Step 4: Voice Style</label>
+                  <span class="pill-opt-tag">Neural Audio</span>
+                </div>
+                <div class="select-wrapper">
+                  <select id="voice-style-select">
+                    <option value="storyteller" selected>🎭 Expressive Storyteller (Warm & Engaging)</option>
+                    <option value="animated">🌟 Energetic & Animated (Lively Cartoon Voices)</option>
+                    <option value="cinematic">🎬 Dramatic & Cinematic (Deep Epic Movie Trailer)</option>
+                    <option value="friendly">💖 Gentle & Friendly (Soft Bedtime Story Cadence)</option>
+                    <option value="conversational">🎙️ Natural Conversational (Casual & Modern)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Step 4: Target Duration Info Box -->
+              <div class="form-group">
+                <div class="form-group-badge-label">
+                  <label>⏱️ Step 4: Selected Runtime</label>
+                  <span class="pill-opt-tag" id="est-scenes-badge">~28 Scenes (3m)</span>
+                </div>
+                <div class="select-wrapper">
+                  <select id="duration-quick-dropdown">
+                    <option value="0.5">30 Seconds (Quick YouTube Reel)</option>
+                    <option value="1">1 Minute (YouTube Shorts)</option>
+                    <option value="2">2 Minutes (Story Short)</option>
+                    <option value="3" selected>3 Minutes (Standard Movie)</option>
+                    <option value="5">5 Minutes (Feature Episode)</option>
+                    <option value="10">10 Minutes (Cinema Special)</option>
+                    <option value="custom">Custom Runtime...</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Target Duration Presets Bar -->
+            <div class="duration-highlight-card" style="margin-top: 10px;">
+              <div class="duration-header">
+                <div class="dur-title">
+                  <span class="icon">⏱️</span>
+                  <div>
+                    <strong>Video Duration Presets</strong>
+                    <p>Scenes & dialogue pacing automatically adapt to fit your chosen duration</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="duration-preset-pills">
+                <button type="button" class="dur-pill" data-minutes="0.5">30s (Quick Reel)</button>
+                <button type="button" class="dur-pill" data-minutes="1">1 Min (Shorts)</button>
+                <button type="button" class="dur-pill" data-minutes="2">2 Min (Story)</button>
+                <button type="button" class="dur-pill active" data-minutes="3">3 Min (Standard)</button>
+                <button type="button" class="dur-pill" data-minutes="5">5 Min (Feature)</button>
+                <button type="button" class="dur-pill" data-minutes="10">10 Min (Cinema)</button>
+                <button type="button" class="dur-pill" id="pill-custom" data-minutes="custom">Custom...</button>
+              </div>
+
+              <div class="custom-duration-row" id="custom-duration-box" style="display: none;">
+                <label for="custom-minutes-input">Enter Runtime in Minutes:</label>
+                <div class="custom-input-wrap">
+                  <input type="number" id="custom-minutes-input" min="0.5" max="180" step="0.5" value="3">
+                  <span>Minutes</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- VIDONOVA AI GENERATE ACTION (Step 5) -->
+            <div class="action-footer vidonova-main-action" style="margin-top: 14px;">
+              <button type="button" class="btn-vidonova-generate" id="btn-generate">
+                <div class="btn-sparkle-glow">✨</div>
+                <div class="btn-generate-content">
+                  <span class="btn-main-title">⚡ Generate Video (Step 5)</span>
+                  <span class="btn-sub-title">AI Auto-Scenes • Natural Dialogue • Character Design • Visuals • Synced Voices • Video Assembly</span>
+                </div>
+              </button>
+              <button type="button" class="btn-secondary-reset" id="btn-reset" title="Reset All">
+                <span>↺</span> Reset
+              </button>
+            </div>
+
+            <!-- 5-STEP AUTONOMOUS AI VIDEO GENERATION PIPELINE (Step 6) -->
+            <div class="pipeline-progress-card" id="progress-container" style="display: none;">
+              <div class="pipeline-card-header">
+                <div class="pipeline-title-group">
+                  <span class="pipeline-pulse-dot"></span>
+                  <strong>VidoNova AI 5-Step Autonomous Video Engine</strong>
+                  <span class="badge-auto-pipeline">100% Autonomous</span>
+                </div>
+                <span class="pipeline-percent-badge" id="progress-percent">0%</span>
+              </div>
+              <p class="pipeline-status-caption" id="progress-status">Initializing AI generation pipeline...</p>
+
+              <div class="pipeline-progress-track">
+                <div class="pipeline-progress-fill" id="progress-bar-fill"></div>
+              </div>
+
+              <div class="pipeline-5steps-grid" id="progress-steps">
+                <div class="pipeline-step-item" id="step-1-script">
+                  <div class="step-badge"><span class="step-icon">1</span></div>
+                  <div class="step-text-wrap">
+                    <span class="step-label">Step 1: Script Input</span>
+                    <span class="step-sublabel">Script & Duration Set</span>
+                  </div>
+                </div>
+
+                <div class="pipeline-step-item" id="step-2-scenes">
+                  <div class="step-badge"><span class="step-icon">2</span></div>
+                  <div class="step-text-wrap">
+                    <span class="step-label">Step 2: Scenes Breakdown</span>
+                    <span class="step-sublabel">Timed Dialogues & Characters</span>
+                  </div>
+                </div>
+
+                <div class="pipeline-step-item" id="step-3-visuals">
+                  <div class="step-badge"><span class="step-icon">3</span></div>
+                  <div class="step-text-wrap">
+                    <span class="step-label">Step 3: AI Scene Visuals</span>
+                    <span class="step-sublabel">Custom Images Per Scene</span>
+                  </div>
+                </div>
+
+                <div class="pipeline-step-item" id="step-4-audio">
+                  <div class="step-badge"><span class="step-icon">4</span></div>
+                  <div class="step-text-wrap">
+                    <span class="step-label">Step 4: Voice & Speech</span>
+                    <span class="step-sublabel">Synced Dialogue Audio Track</span>
+                  </div>
+                </div>
+
+                <div class="pipeline-step-item" id="step-5-video">
+                  <div class="step-badge"><span class="step-icon">5</span></div>
+                  <div class="step-text-wrap">
+                    <span class="step-label">Step 5: Video Editing</span>
+                    <span class="step-sublabel">Ken Burns, Subtitles & Final Video</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Storyboard Preview Card (Displays generated scenes) -->
+            <div class="storyboard-preview-card" id="storyboard-preview-card">
+              <div class="storyboard-card-header">
+                <div class="sb-title">
+                  <span>🎬</span>
+                  <strong>Generated Scenes & Dialogue Breakdown</strong>
+                </div>
+                <span class="badge-scenes-count" id="sb-count-badge">Ready to Generate</span>
+              </div>
+              <div class="storyboard-scenes-scroller" id="storyboard-scenes-scroller">
+                <div class="sb-empty-state">
+                  <span>✨</span>
+                  <p>Click <strong>"Generate VidoNova AI Video"</strong> above to automatically break your script into
+                    timed dialogue scenes, or type your own story.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 2: DETAILED STORYBOARD & SCENE EDITOR -->
+          <!-- TAB 2: DETAILED STORYBOARD & SCENE EDITOR (STEP 8) -->
+          <div class="deck-tab-pane" id="pane-storyboard-tab">
+            <div class="cast-management-header">
+              <h3>🎬 Step 8: Storyboard, Dialogue & Scene Editor</h3>
+              <p>Edit dialogue text, change speakers, adjust timing, modify emotions, and audition each scene before exporting:</p>
+            </div>
+            <div class="storyboard-toolbar-actions">
+              <button type="button" class="btn-add-scene" id="btn-add-new-scene">➕ Add New Scene</button>
+              <button type="button" class="btn-text-action" id="btn-rebalance-timing">⏱️ Balance Pacing</button>
+              <button type="button" class="btn-text-action" id="btn-sync-to-script">📜 Sync with Screenplay</button>
+            </div>
+            <div class="storyboard-full-list" id="storyboard-full-list">
+              <div class="empty-gallery-state">Generate a video to view and edit detailed scene blocks.</div>
+            </div>
+          </div>
+
+          <!-- TAB 3: CHARACTER CAST & RIGGING (STEP 8) -->
+          <div class="deck-tab-pane" id="pane-cast-tab">
+            <div class="cast-management-header">
+              <h3>🎭 Character Rigs & Customization (Step 8)</h3>
+              <p>Characters are designed automatically from your story. Customize their models, colors, and voices below:</p>
+            </div>
+
+            <div class="cast-cards-grid">
+              <!-- CHARACTER A CARD -->
+              <div class="char-rig-card" id="char-a-rig-card">
+                <div class="char-rig-header">
+                  <div class="char-avatar-preview-box">
+                    <canvas id="char-a-preview-canvas" width="70" height="70"></canvas>
+                  </div>
+                  <div>
+                    <input type="text" class="char-name-input" id="char-a-name" value="शेर"
+                      placeholder="Character A Name">
+                    <span class="char-pos-badge">Left Stage • Lead</span>
+                  </div>
+                </div>
+
+                <div class="char-rig-controls">
+                  <div class="form-group-mini">
+                    <label>Cartoon Archetype</label>
+                    <select id="char-a-type">
+                      <option value="krishna">🦚 Shri Krishna (श्री कृष्ण - 3D Divine Avatar)</option>
+                      <option value="sathi">🤝 Sathi / Friend (साथी / ग्रामीण मित्र)</option>
+                      <option value="hanuman">🚩 Lord Hanuman (हनुमान जी - 3D Divine Hero)</option>
+                      <option value="ram">🏹 Lord Shri Ram (श्री राम - 3D Divine Avatar)</option>
+                      <option value="lion" selected>🦁 Lion / Majestic Feline (Sher)</option>
+                      <option value="elephant">🐘 Elephant / Mammoth (Hathi)</option>
+                      <option value="rodent">🐀 Rat / Mouse (Small Critter)</option>
+                      <option value="monkey">🐒 Clever Monkey / Primate (Bandar)</option>
+                      <option value="rabbit">🐇 Swift Rabbit / Bunny (Chiku)</option>
+                      <option value="fox">🦊 Fox / Clever Canine (Lomdi)</option>
+                      <option value="bear">🐻 Bear / Panda (Bhalu)</option>
+                      <option value="cat">🐱 Cute Cat / Kitten (Billi)</option>
+                      <option value="dog">🐶 Friendly Dog / Pup (Kutta)</option>
+                      <option value="dragon">🐉 Dragon / Mythic Reptile</option>
+                      <option value="bird">🦉 Owl / Wise Feathered Bird</option>
+                      <option value="robot">🤖 High-Tech Robot / Mech</option>
+                      <option value="alien">👽 Alien / Cosmic Monster</option>
+                      <option value="knight">⚔️ Armored Knight / Paladin</option>
+                      <option value="wizard">🧙‍♂️ Mystic Wizard / Mage</option>
+                      <option value="astronaut">🚀 Space Astronaut</option>
+                      <option value="explorer">🌿 Human Explorer / Adventurer</option>
+                      <option value="tracker">🏔️ Mountain Tracker / Guide</option>
+                    </select>
+                  </div>
+
+                  <div class="form-row-mini">
+                    <div class="form-group-mini">
+                      <label>Hair Style</label>
+                      <select id="char-a-hair">
+                        <option value="ponytail" selected>Ponytail</option>
+                        <option value="short">Short Crop</option>
+                        <option value="spiky">Spiky Anime</option>
+                        <option value="long">Long Flowing</option>
+                        <option value="hat">Explorer Hat</option>
+                      </select>
+                    </div>
+                    <div class="form-group-mini">
+                      <label>Hair Color</label>
+                      <input type="color" id="char-a-hair-color" value="#78350f">
+                    </div>
+                  </div>
+
+                  <div class="form-row-mini">
+                    <div class="form-group-mini">
+                      <label>Outfit Color</label>
+                      <input type="color" id="char-a-outfit-color" value="#059669">
+                    </div>
+                    <div class="form-group-mini">
+                      <label>Skin Tone</label>
+                      <input type="color" id="char-a-skin-color" value="#fed7aa">
+                    </div>
+                  </div>
+
+                  <button type="button" class="btn-test-talk" id="btn-test-talk-a">🗣️ Test Lip-Sync Talk</button>
+                </div>
+              </div>
+
+              <!-- CHARACTER B CARD -->
+              <div class="char-rig-card" id="char-b-rig-card">
+                <div class="char-rig-header">
+                  <div class="char-avatar-preview-box">
+                    <canvas id="char-b-preview-canvas" width="70" height="70"></canvas>
+                  </div>
+                  <div>
+                    <input type="text" class="char-name-input" id="char-b-name" value="चूहा"
+                      placeholder="Character B Name">
+                    <span class="char-pos-badge">Right Stage • Companion</span>
+                  </div>
+                </div>
+
+                <div class="char-rig-controls">
+                  <div class="form-group-mini">
+                    <label>Cartoon Archetype</label>
+                    <select id="char-b-type">
+                      <option value="krishna">🦚 Shri Krishna (श्री कृष्ण - 3D Divine Avatar)</option>
+                      <option value="sathi">🤝 Sathi / Friend (साथी / ग्रामीण मित्र)</option>
+                      <option value="hanuman">🚩 Lord Hanuman (हनुमान जी - 3D Divine Hero)</option>
+                      <option value="ram">🏹 Lord Shri Ram (श्री राम - 3D Divine Avatar)</option>
+                      <option value="rodent" selected>🐀 Rat / Mouse (Small Critter - Chuha)</option>
+                      <option value="lion">🦁 Lion / Majestic Feline (Sher)</option>
+                      <option value="elephant">🐘 Elephant / Mammoth (Hathi)</option>
+                      <option value="monkey">🐒 Clever Monkey / Primate (Bandar)</option>
+                      <option value="rabbit">🐇 Swift Rabbit / Bunny (Chiku)</option>
+                      <option value="fox">🦊 Fox / Clever Canine (Lomdi)</option>
+                      <option value="cat">🐱 Cute Cat / Kitten (Billi)</option>
+                      <option value="dog">🐶 Friendly Dog / Pup (Kutta)</option>
+                      <option value="bear">🐻 Bear / Panda (Bhalu)</option>
+                      <option value="dragon">🐉 Dragon / Mythic Reptile</option>
+                      <option value="bird">🦉 Owl / Wise Feathered Bird</option>
+                      <option value="robot">🤖 High-Tech Robot / Mech</option>
+                      <option value="alien">👽 Alien / Cosmic Monster</option>
+                      <option value="knight">⚔️ Armored Knight / Paladin</option>
+                      <option value="wizard">🧙‍♂️ Mystic Wizard / Mage</option>
+                      <option value="astronaut">🚀 Space Astronaut</option>
+                      <option value="explorer">🌿 Human Explorer / Adventurer</option>
+                      <option value="tracker">🏔️ Mountain Tracker / Guide</option>
+                    </select>
+                  </div>
+
+                  <div class="form-row-mini">
+                    <div class="form-group-mini">
+                      <label>Hair Style</label>
+                      <select id="char-b-hair">
+                        <option value="short" selected>Short Natural</option>
+                        <option value="spiky">Spiky</option>
+                        <option value="hood">Warm Hood</option>
+                        <option value="long">Topknot</option>
+                      </select>
+                    </div>
+                    <div class="form-group-mini">
+                      <label>Hair Color</label>
+                      <input type="color" id="char-b-hair-color" value="#1e293b">
+                    </div>
+                  </div>
+
+                  <div class="form-row-mini">
+                    <div class="form-group-mini">
+                      <label>Outfit Color</label>
+                      <input type="color" id="char-b-outfit-color" value="#0284c7">
+                    </div>
+                    <div class="form-group-mini">
+                      <label>Skin Tone</label>
+                      <input type="color" id="char-b-skin-color" value="#fbcfe8">
+                    </div>
+                  </div>
+
+                  <button type="button" class="btn-test-talk" id="btn-test-talk-b">🗣️ Test Lip-Sync Talk</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 3: STAGE & SCENERY -->
+          <div class="deck-tab-pane" id="pane-stage-tab">
+            <div class="cast-management-header">
+              <h3>🎨 Stage Environment & Background Scenery</h3>
+              <p>Choose procedural cartoon backdrops or generative AI scenery behind your characters:</p>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="stage-env-select">🌄 Background Environment</label>
+                <div class="select-wrapper">
+                  <select id="stage-env-select">
+                    <option value="gokul">🦚 Gokul & Vrindavan Village (गोकुल / वृन्दावन)</option>
+                    <option value="village">🌾 Indian Rural Village & Bazaar (भारतीय गाँव)</option>
+                    <option value="savannah" selected>🦁 African Golden Savannah & Acacia Plains</option>
+                    <option value="forest">🌲 Enchanted Woodland Forest & Wildflowers</option>
+                    <option value="cybercity">⚡ Neon Cyberpunk City & Wet Reflections</option>
+                    <option value="spaceship">🚀 Starship Observation Deck & Deep Space</option>
+                    <option value="castle">🏰 Ancient Medieval Castle & Torchlight</option>
+                    <option value="ocean">🌊 Deep Turquoise Ocean Coral Reef</option>
+                    <option value="himalayas">🏔️ Himalayan Snowy Peaks & Mist</option>
+                    <option value="cave">💎 Mysterious Glowing Crystal Cavern</option>
+                    <option value="desert">🏜️ Blazing Sahara Desert & Sand Dunes</option>
+                    <option value="cozycamp">🔥 Wilderness Campfire at Twilight</option>
+                    <option value="ai_generative">🎨 AI Generative Scene Visuals</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="stage-time-select">☀️ Lighting & Time of Day</label>
+                <div class="select-wrapper">
+                  <select id="stage-time-select">
+                    <option value="golden_hour" selected>Golden Hour Sunset</option>
+                    <option value="daylight">Vibrant Midday Sun</option>
+                    <option value="twilight">Mystic Purple Twilight</option>
+                    <option value="night">Starry Night Sky</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Atmospheric Shaders & FX -->
+            <div class="realism-enhancement-box">
+              <div class="realism-header">
+                <span>✨</span> <strong>Atmospheric Effects & Cartoon Elements</strong>
+              </div>
+              <div class="realism-toggles-grid">
+                <label class="checkbox-pill">
+                  <input type="checkbox" id="toggle-speech-bubbles">
+                  <span>💬 Dynamic Cartoon Speech Bubbles</span>
+                </label>
+                <label class="checkbox-pill">
+                  <input type="checkbox" id="toggle-particles" checked>
+                  <span>🍃 Floating Leaves & Sun Dust</span>
+                </label>
+                <label class="checkbox-pill">
+                  <input type="checkbox" id="toggle-character-shadows" checked>
+                  <span>👥 Realistic Cartoon Ground Shadows</span>
+                </label>
+                <label class="checkbox-pill">
+                  <input type="checkbox" id="toggle-camera-sway" checked>
+                  <span>🎥 Steadicam Breathing Sway</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- TAB 4: AUDIO & VOICE MIXER -->
+          <div class="deck-tab-pane" id="pane-audio-tab">
+            <div class="cast-management-header">
+              <h3>🎚️ Multi-Channel Voice & Audio Studio</h3>
+              <p>Configure ultra-realistic human voices or neural multi-voice actors:</p>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="voice-engine-select">🎙️ Voice Synthesis Engine</label>
+                <div class="select-wrapper">
+                  <select id="voice-engine-select">
+                    <option value="elevenlabs" selected>✨ ElevenLabs Ultra-Realistic AI Voice (Studio Hindi & Multilingual)</option>
+                    <option value="multi-character">Multi-Character Neural Studio Speech (Instant & Unlimited)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="bg-music-toggle">🎵 Adaptive Background Score</label>
+                <div class="music-toggle-row">
+                  <label class="switch">
+                    <input type="checkbox" id="bg-music-toggle" checked>
+                    <span class="slider round"></span>
+                  </label>
+                  <div class="volume-box">
+                    <span id="volume-label">Vol: 15%</span>
+                    <input type="range" id="bg-music-volume" min="0" max="1" step="0.05" value="0.15">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="collapsible-config" id="elevenlabs-config-box">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="elevenlabs-key">ElevenLabs API Key</label>
+                  <input type="password" id="elevenlabs-key" value=""
+                    placeholder="Optional: Enter your ElevenLabs xi-api-key" autocomplete="off">
+                </div>
+                <div class="form-group">
+                  <label for="elevenlabs-narrator-id">📖 Story Narrator Voice</label>
+                  <select id="elevenlabs-narrator-id">
+                    <option value="21m00Tcm4TlvDq8ikWAM" selected>Rachel (Calm, Warm Storyteller)</option>
+                    <option value="ErXwobaYiN019PkySvjV">Antoni (Expressive Guide)</option>
+                    <option value="onwK4e9ZLuTAKqWW03F9">Daniel (British Authoritative)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row" style="margin-top: 10px;">
+                <div class="form-group">
+                  <label for="elevenlabs-voice-id">🐘 Char A Voice (Elephant / Deep Character)</label>
+                  <select id="elevenlabs-voice-id">
+                    <option value="pNInz6obpgDQGcFmaJgB" selected>Adam (Deep, Baritone Elephant)</option>
+                    <option value="JBFqnCBsd6RMkjVDRZzb">George (Warm, Gentle Giant)</option>
+                    <option value="VR6AewLTigWG4xSOukaG">Arnold (Heavy, Powerful)</option>
+                    <option value="ErXwobaYiN019PkySvjV">Antoni (Energetic)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="elevenlabs-voice-b-id">🐭 Char B Voice (Mouse / Cute Character)</label>
+                  <select id="elevenlabs-voice-b-id">
+                    <option value="TxGEqnHWrfWFTfGW9XjX" selected>Josh (Youthful, High-Pitched Mouse)</option>
+                    <option value="EXAVITQu4vr4xnSDxMaL">Bella (Sweet, Animated, Childlike)</option>
+                    <option value="XB0fDUnXU5ikFXcvcxQp">Alice (Cute, Squeaky, Lively)</option>
+                    <option value="jsCqWAovK2LkecY7zXl4">Freya (Playful, Cheerful)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="voice-distinct-badge"
+                style="margin-top: 12px; padding: 10px 14px; background: rgba(56, 189, 248, 0.1); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: 8px; font-size: 12px; color: #bae6fd; display: flex; align-items: center; gap: 8px;">
+                <span>✨</span>
+                <span><strong>Multi-Character Voice Separation Active:</strong> Elephant speaks with deep baritone
+                  pitch, Mouse speaks with cute squeaky pitch, and Narrator speaks with natural storytelling pace across
+                  both ElevenLabs and Free engines!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Panel: The Animation Stage & Multi-Track Studio Timeline -->
+      <section class="studio-panel stage-timeline-deck" aria-label="Cinema Stage and Timeline Deck">
+        <!-- Stage Header Tools -->
+        <div class="stage-header-tools">
+          <div class="stage-live-speakers">
+            <span class="speaker-chip-live" id="speaker-a-indicator">
+              <span class="speaker-dot"></span> <span id="label-speaker-a">Dr. Elena (Listening)</span>
+            </span>
+            <span class="speaker-chip-live" id="speaker-b-indicator">
+              <span class="speaker-dot"></span> <span id="label-speaker-b">Tashi (Listening)</span>
+            </span>
+          </div>
+
+          <div class="stage-header-badges">
+            <span class="badge-stage-res" id="viewport-aspect-indicator">16:9 Cinema Stage</span>
+            <span class="badge-stage-cam" id="cam-active-badge">Cam: Dual Two-Shot</span>
+          </div>
+        </div>
+
+        <!-- Cinema Stage Canvas Viewport -->
+        <div class="viewport-stage" id="viewport-stage">
+          <div class="canvas-container landscape-mode" id="canvas-container">
+            <!-- Main HTML5 Canvas (Renders Stage, Characters, Lip-Sync, Subtitles) -->
+            <canvas id="cinema-canvas" width="1280" height="720"></canvas>
+
+            <!-- Video Overlay Play Button -->
+            <div class="viewport-overlay" id="viewport-overlay">
+              <button class="overlay-play-btn" id="overlay-play-btn" aria-label="Play or Pause">
+                <span class="play-icon">▶</span>
+              </button>
+            </div>
+
+            <!-- Empty Placeholder (Before First Generation) -->
+            <div class="empty-viewport-placeholder" id="empty-placeholder">
+              <div class="placeholder-icon">🎬</div>
+              <h3>VidoNova AI Master Cinema Theater</h3>
+              <p>Your complete, single continuous 3D Disney/Pixar animated movie will play here automatically from
+                beginning to end!</p>
+              <div class="tech-tags">
+                <span class="tag">🎬 Single Continuous 1080p Video</span>
+                <span class="tag">🐘 Authentic 3D Disney/Pixar Characters</span>
+                <span class="tag">🇮🇳 Synchronized Hindi Voiceover</span>
+                <span class="tag">📥 Instant 1-Click Video Download</span>
+              </div>
+            </div>
+
+            <!-- Watermark / HUD Elements -->
+            <div class="cinematic-hud" id="cinematic-hud" style="display: none;">
+              <span class="hud-item"><span class="rec-dot"></span> VIDONOVA AI CINEMA [1080p]</span>
+              <span class="hud-item" id="hud-scene-idx">SCENE 1 / 1</span>
+              <span class="hud-item hud-time" id="hud-timer">00:00 / 00:00</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- MASTER VIDEO PLAYER CONTROLS (Single Film Transport) -->
+        <div class="pro-timeline-container master-player-deck" id="pro-timeline-container">
+          <!-- Timeline Controls Header -->
+          <div class="timeline-header-toolbar">
+            <div class="timeline-playback-btns">
+              <button type="button" class="ctrl-btn-nle" id="btn-prev-scene" title="Previous Scene" disabled>⏮</button>
+              <button type="button" class="ctrl-btn-nle btn-play-main" id="btn-play-pause" title="Play / Pause"
+                disabled>
+                <span id="play-pause-icon">▶</span>
+              </button>
+              <button type="button" class="ctrl-btn-nle" id="btn-next-scene" title="Next Scene" disabled>⏭</button>
+              <button type="button" class="ctrl-btn-nle" id="btn-stop" title="Stop & Rewind" disabled>⏹</button>
+
+              <div class="timeline-timecode">
+                <span id="current-time">00:00:00</span> / <span id="duration-time">00:00:00</span>
+              </div>
+            </div>
+
+            <div class="timeline-zoom-tools">
+              <span class="zoom-label">Status:</span>
+              <span class="badge-track-count" id="master-movie-status-badge">🎬 Ready to Play Movie</span>
+              <button type="button" class="ctrl-btn-nle" id="btn-mute" title="Mute/Unmute">
+                <span id="mute-icon">🔊</span>
+              </button>
+              <button type="button" class="ctrl-btn-nle" id="btn-fullscreen" title="Fullscreen Cinema Stage">⛶</button>
+            </div>
+          </div>
+
+          <!-- Master Time Scrubber Bar -->
+          <div class="timeline-scrubber-bar-wrap">
+            <input type="range" class="timeline-slider" id="timeline-slider" min="0" max="100" value="0" step="0.05"
+              disabled>
+          </div>
+        </div>
+
+        <!-- HERO EXPORT & DOWNLOAD BANNER (Placed directly below Player!) -->
+        <div class="export-banner" id="export-banner" style="display: none;">
+          <div class="export-details">
+            <div class="export-icon">✨</div>
+            <div>
+              <div class="export-title">🎬 Final Movie Ready! (YouTube MP4 Export • Step 9)</div>
+              <div class="export-meta" id="export-meta-text">Single full video output with synchronized dialogues, authentic visual styles, and YouTube-optimized format.</div>
+            </div>
+          </div>
+          <div class="export-actions">
+            <button type="button" class="btn-download btn-youtube-export" id="btn-download-video" title="Download YouTube Ready MP4 Video (16:9 1080p)">
+              <span>📥</span> Download Full Video (MP4)
+            </button>
+            <button type="button" class="btn-secondary btn-shorts-export" id="btn-download-shorts" title="Download 9:16 Vertical Video for YouTube Shorts">
+              <span>📱</span> YouTube Shorts (9:16 MP4)
+            </button>
+            <button type="button" class="btn-secondary" id="btn-download-subtitles" title="Download SubRip Subtitles for YouTube Closed Captions">
+              <span>📄</span> Export Subtitles (.SRT)
+            </button>
+            <button type="button" class="btn-secondary btn-copy-youtube-seo" id="btn-copy-youtube-desc" title="Copy YouTube Title, Description & Scene Chapters">
+              <span>📋</span> Copy YouTube Info & Chapters
+            </button>
+            <button type="button" class="btn-secondary" id="btn-download-script" title="Export Formatted Screenplay">
+              <span>📜</span> Screenplay (.TXT)
+            </button>
+          </div>
+        </div>
+
+        <!-- ADVANCED DIRECTOR DRAWER (Optional Collapsible Breakdown to avoid "part part" confusion) -->
+        <details class="advanced-timeline-drawer" id="advanced-timeline-drawer">
+          <summary class="advanced-timeline-summary">
+            <div class="summary-left">
+              <span>🛠️</span>
+              <strong>Advanced Director Tracks & Scene Breakdown</strong>
+              <span class="summary-tag">Optional</span>
+            </div>
+            <span class="summary-toggle-hint">Click to inspect tracks & individual scene cards ▾</span>
+          </summary>
+          <div class="advanced-drawer-body">
+            <!-- Multi-Track Stacked Lanes -->
+            <div class="nle-tracks-deck" id="nle-tracks-deck">
+              <!-- Track 1: Video / Scene B-Roll -->
+              <div class="nle-track-lane">
+                <div class="track-header-label">
+                  <span class="track-icon">🎬</span>
+                  <span class="track-title">SCENE</span>
+                </div>
+                <div class="track-lane-content" id="track-lane-scenes">
+                  <div class="track-placeholder-text">Scene breakdown blocks will populate here...</div>
+                </div>
+              </div>
+
+              <!-- Track 2: Char A Dialogue & Lip-Sync -->
+              <div class="nle-track-lane lane-chara">
+                <div class="track-header-label">
+                  <span class="track-icon">🗣️</span>
+                  <span class="track-title" id="track-label-chara">CHAR A</span>
+                </div>
+                <div class="track-lane-content" id="track-lane-chara">
+                  <div class="track-placeholder-text">Character A dialogue segments...</div>
+                </div>
+              </div>
+
+              <!-- Track 3: Char B Dialogue & Lip-Sync -->
+              <div class="nle-track-lane lane-charb">
+                <div class="track-header-label">
+                  <span class="track-icon">🗣️</span>
+                  <span class="track-title" id="track-label-charb">CHAR B</span>
+                </div>
+                <div class="track-lane-content" id="track-lane-charb">
+                  <div class="track-placeholder-text">Character B dialogue segments...</div>
+                </div>
+              </div>
+
+              <!-- Track 4: Audio Score & Ducking -->
+              <div class="nle-track-lane lane-audio">
+                <div class="track-header-label">
+                  <span class="track-icon">🎵</span>
+                  <span class="track-title">SCORE</span>
+                </div>
+                <div class="track-lane-content" id="track-lane-audio">
+                  <div class="audio-waveform-fill"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Generated Scene Reel Gallery Strip -->
+            <div class="gallery-section" style="margin-top: 14px;">
+              <div class="gallery-header-row">
+                <h3>🎞️ Individual Scene Snapshots</h3>
+                <span class="gallery-info-text">Scene thumbnails & dialogue breakdown</span>
+              </div>
+              <div class="scene-reel-cards" id="scene-reel-cards">
+                <div class="empty-gallery-state">Generated visual scenes with character dialogue will appear here.</div>
+              </div>
+            </div>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <!-- Studio Footer -->
+    <footer class="app-footer">
+      <p>TOON CINEMA STUDIO PRO • Procedural Vector Cartoon Rigs • Real-Time Lip-Sync Engine • Multi-Track Non-Linear
+        Video Compositor</p>
+    </footer>
+  </div>
+
+  <!-- Studio Preloaded Audio Vault (Ensures 100% immediate playback without browser blocking) -->
+  <div id="studio-audio-vault" style="display: none;" aria-hidden="true">
+    <audio id="scene-audio-track-1" src="assets/audio/scene_1.mp3" preload="auto"></audio>
+    <audio id="scene-audio-track-2" src="assets/audio/scene_2.mp3" preload="auto"></audio>
+    <audio id="scene-audio-track-3" src="assets/audio/scene_3.mp3" preload="auto"></audio>
+    <audio id="scene-audio-track-4" src="assets/audio/scene_4.mp3" preload="auto"></audio>
+    <audio id="studio-bg-music-player" src="background.mp3" preload="auto" loop></audio>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
